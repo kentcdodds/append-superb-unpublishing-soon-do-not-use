@@ -1,0 +1,58 @@
+{
+  "name": "append-superb-unpublishing-soon-do-not-use",
+  "version": "1.0.0",
+  "description": "This is not real. I don't recommend using it :-)",
+  "main": "built.js",
+  "scripts": {
+    "build": "babel index.js -o built.js",
+    "cover": "nyc npm t",
+    "check-coverage": "nyc check-coverage --statements 100 --branches 100 --functions 100 --lines 100",
+    "test": "ava",
+    "watch:test": "npm t -- -w",
+    "lint": "eslint .",
+    "validate": "npm-run-all --parallel lint cover --serial check-coverage",
+    "prepublish": "npm run validate && npm run build"
+  },
+  "keywords": [],
+  "author": "Kent C. Dodds <kent@doddsfamily.us> (http://kentcdodds.com/)",
+  "license": "MIT",
+  "devDependencies": {
+    "ava": "0.14.0",
+    "babel-cli": "6.8.0",
+    "babel-eslint": "6.0.4",
+    "babel-plugin-add-module-exports": "0.1.4",
+    "babel-preset-es2015": "6.6.0",
+    "babel-register": "6.8.0",
+    "eslint": "2.9.0",
+    "eslint-config-kentcdodds": "6.2.1",
+    "npm-run-all": "1.8.0",
+    "nyc": "6.4.2"
+  },
+  "files": [
+    "built.js"
+  ],
+  "eslintConfig": {
+    "extends": "kentcdodds/es-next"
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ],
+    "plugins": [
+      "add-module-exports"
+    ]
+  },
+  "ava": {
+    "require": "babel-register"
+  },
+  "nyc": {
+    "reporter": [
+      "lcov",
+      "text",
+      "html"
+    ]
+  },
+  "dependencies": {
+    "superb": "1.3.0"
+  }
+}
